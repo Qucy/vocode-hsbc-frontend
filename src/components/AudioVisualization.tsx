@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import React from "react";
 import { isSafari } from "react-device-detect";
 
@@ -10,9 +9,6 @@ const AudioVisualization = ({ analyser }: { analyser: AnalyserNode }) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    // canvas.width = canvas.height = 1000;
-    // canvas.width = 1920;
-    // canvas.height = 1080;
     document.body.style.margin = "0";
     document.body.style.overflow = "hidden";
 
@@ -47,39 +43,7 @@ const AudioVisualization = ({ analyser }: { analyser: AnalyserNode }) => {
       ctx.globalAlpha = 1;
       ctx.strokeStyle = "#FFF";
       ctx.lineWidth = 9;
-      //   ctx.beginPath();
-      //   ctx.arc(0, 0, 55, 0, Math.PI * 2);
-      //   ctx.stroke();
-      //   const width = 12;
-      //   const height = 18;
-      //   ctx.lineCap = "round";
-      //   ctx.moveTo(-width, -height);
-      //   ctx.lineTo(-width, height);
-      //   ctx.stroke();
-      //   ctx.moveTo(width, -height);
-      //   ctx.lineTo(width, height);
-      //   ctx.stroke();
       var rings = [
-        // {
-        //   color: "hsl( 205, 70%, 55% )",
-        //   opacity: 0.03,
-        //   distance: 230,
-        //   variance: 8,
-        //   innerRings: 10,
-        //   lineWidth: 7,
-        //   direction: -1,
-        //   sections: 5,
-        // },
-        // {
-        //   color: "hsl( 205, 70%, 55% )",
-        //   opacity: 0.05,
-        //   distance: 230,
-        //   variance: 7,
-        //   innerRings: 10,
-        //   lineWidth: 10,
-        //   direction: -1,
-        //   sections: 5,
-        // },
         {
           color: "hsl( 205, 60%, 55% )",
           opacity: 0.05,
@@ -100,26 +64,6 @@ const AudioVisualization = ({ analyser }: { analyser: AnalyserNode }) => {
           direction: -1,
           sections: 4,
         },
-        // {
-        //   color: "hsl( 205, 80%, 55% )",
-        //   opacity: 0.15,
-        //   distance: 115,
-        //   variance: 3.5,
-        //   innerRings: 20,
-        //   lineWidth: 3,
-        //   direction: 1,
-        //   sections: 3,
-        // },
-        // {
-        //   color: "hsl( 205, 80%, 55% )",
-        //   opacity: 0.7,
-        //   distance: 120,
-        //   variance: 3,
-        //   innerRings: 10,
-        //   lineWidth: 3,
-        //   direction: 1,
-        //   sections: 3,
-        // },
       ];
 
       analyser.getByteFrequencyData(dataArray);
@@ -151,7 +95,7 @@ const AudioVisualization = ({ analyser }: { analyser: AnalyserNode }) => {
 
       var da = (Math.PI * 2) / 50;
       for (var i = 0; i < rings.length; i++) {
-        if (rings[i].lastAudio == undefined) {
+        if (rings[i].lastAudio === undefined) {
           rings[i].lastAudio = 0;
         } else {
           rings[i].lastAudio = rings[i].audioOffset;
@@ -199,10 +143,6 @@ const AudioVisualization = ({ analyser }: { analyser: AnalyserNode }) => {
       ctx.drawImage(canvas, 0, 0);
       ctx.filter = "none";
 
-      for (var i = 0; i < 256; i++) {
-        //ctx.fillRect( 0, i * 4, dataArray[ Math.floor( i / 256 * bufferLength ) ], 4 );
-      }
-
       requestAnimationFrame(render);
     }
 
@@ -217,7 +157,7 @@ const AudioVisualization = ({ analyser }: { analyser: AnalyserNode }) => {
     window.onresize = resize;
     resize();
     render();
-  }, []);
+  }, [analyser]);
 
   return <canvas ref={canvasRef} />;
 };

@@ -2,10 +2,7 @@ import "@fontsource/inter";
 import "./App.css";
 
 import {
-  Box,
   ChakraProvider,
-  Flex,
-  Spacer,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -15,13 +12,9 @@ import { isChrome, isMobile, isSafari } from "react-device-detect";
 import { WarningIcon } from "@chakra-ui/icons";
 import {
   DeepgramTranscriberConfig,
-  LLMAgentConfig,
   AzureSynthesizerConfig,
   VocodeConfig,
-  EchoAgentConfig,
-  ChatGPTAgentConfig,
-  RESTfulUserImplementedAgentConfig,
-  WebSocketUserImplementedAgentConfig,
+  ChatGPTAgentConfig
 } from "vocode";
 
 const App = () => {

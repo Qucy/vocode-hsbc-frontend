@@ -1,5 +1,3 @@
-import { FaMicrophone, FaMicrophoneSlash } from "react-icons/fa";
-import { Box, Center, Icon } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { isSafari } from "react-device-detect";
 
