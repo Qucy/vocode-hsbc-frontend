@@ -16,12 +16,9 @@ const Conversation = ({
   const [outputDevices, setOutputDevices] = React.useState<MediaDeviceInfo[]>(
     []
   );
-  // let transcripts: any[] = [];
-  // const { status, start, stop, analyserNode } = useConversation(
-  //   Object.assign(config, { audioDeviceConfig })
-  // );
+
   const { status, start, stop, analyserNode, transcripts } = useConversation({
-    backendUrl: "ws://127.0.0.1:8000/conversation",
+    backendUrl: "ws://34.96.200.154:8000/conversation", // ws://localhost:8000/conversation for local debug
     subscribeTranscript: false,
     audioDeviceConfig,
   });
