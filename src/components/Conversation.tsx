@@ -18,7 +18,7 @@ const Conversation = ({
   );
 
   const { status, start, stop, analyserNode, transcripts } = useConversation({
-    backendUrl: "ws://34.96.200.154:8000/conversation", // ws://localhost:8000/conversation for local debug
+    backendUrl: "ws://localhost:8000/conversation", // TODO change to your backend URL
     subscribeTranscript: false,
     audioDeviceConfig,
   });
